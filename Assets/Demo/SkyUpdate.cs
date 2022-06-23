@@ -9,7 +9,7 @@ public class SkyUpdate : MonoBehaviour
     [SerializeField] private Color[] _colors;
 
     private void OnEnable()
-    {
+    { 
         _timeEvents.GetEvent("Morning").Done += UpdateSkyMorning;
         _timeEvents.GetEvent("Afternoon").Done += UpdateSkyAfternoon;
         _timeEvents.GetEvent("Evening").Done += UpdateSkyEvening;
@@ -24,6 +24,7 @@ public class SkyUpdate : MonoBehaviour
         _timeEvents.GetEvent("Night").Done -= UpdateSkyNight;
     }
 
+    //Ну... WET-кодинг. Думаю, комментарии излишни
     private void UpdateSkyMorning() => StartCoroutine(UpdateSkyColor(_colors[0]));
     private void UpdateSkyAfternoon() => StartCoroutine(UpdateSkyColor(_colors[1]));
     private void UpdateSkyEvening() => StartCoroutine(UpdateSkyColor(_colors[2]));

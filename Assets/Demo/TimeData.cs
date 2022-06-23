@@ -20,6 +20,8 @@ public class TimeData : ScriptableObject
 
     private void OnEnable()
     {
+        //ј првильно ли так делать, что если у теб€ поле истинно, сделать свойство прив€занное к полю истинным?
+        //¬ернуть истину оно все равно вернет. ј вызывть метод можно и просто так
         if (_reset) Reset = true;
 
         foreach (TimeUnit unit in _timeUnits)
@@ -36,6 +38,7 @@ public class TimeData : ScriptableObject
         if (Reset)
         {
             Reseted?.Invoke();
+            //¬ чем else так провинилс€?
             if (_enabled) ResetWhenEnabled();
             if (!_enabled) _currentTime = 0f;
         }
@@ -43,6 +46,9 @@ public class TimeData : ScriptableObject
 
     private void ResetWhenEnabled()
     {
+        //„то-то мне сложно врубитьс€ в логику, но это выгл€дит костыльно
+        //» как € пон€л делаетс€ только дл€ того чтобы при небольшом кадре апдейта в TimeGame не добвилась deltaTime,
+        //хот€, как мне кажетс€, такими потер€ми можно принебречь и не делать лишних методов
         _enabled = false;
         _currentTime = 0f;
         _enabled = true;

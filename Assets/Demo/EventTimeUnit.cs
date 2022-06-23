@@ -4,6 +4,7 @@ using System;
 [Serializable]
 public class EventTimeUnit
 {
+    //Тултипы
     [SerializeField] private TimeUnits _key;
     [SerializeField] private int _defaultvalue;
 
@@ -16,6 +17,7 @@ public class EventTimeUnit
     private int _currentValue;
     private TimeUnit _eventTime;
 
+    //xml-комменты всем публичным методам хочется
     public void Init(TimeUnit eventTime)
     {
         _eventTime = eventTime;
@@ -23,6 +25,9 @@ public class EventTimeUnit
     }
     ~EventTimeUnit() => _eventTime.Updated -= Count;
 
+    //Этот метод, вызывается только в этом классе и только в качестве обработчика события
+    //Правильнее обработчики именовть On(ИмяСобытия). Ну и паблик не нужон
+    //xml-комменты всем публичным методам хочется
     public void Count()
     {
         _currentValue++;
