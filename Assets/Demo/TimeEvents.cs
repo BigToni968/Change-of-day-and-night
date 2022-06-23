@@ -25,7 +25,7 @@ public class TimeEvents : MonoBehaviour
     private void EndEvent()
     {
         _events[_indexCurrentEvent].Done -= EndEvent;
-        _indexCurrentEvent++;
+        _indexCurrentEvent++;        
         StartEvent(_indexCurrentEvent);
     }
 
